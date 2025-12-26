@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartShop</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+}
+
+header {
+    background: #222;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cart {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SmartShop</h1>
+    <p>Simple E-commerce Website</p>
+</header>
+
+<div class="container">
+
+    <h2>Products</h2>
+
+    <div class="products">
+        <div class="product">
+            <h3>Smartphone</h3>
+            <p>₹15000</p>
+            <button onclick="addToCart('Smartphone',15000)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <h3>Laptop</h3>
+            <p>₹50000</p>
+            <button onclick="addToCart('Laptop',50000)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <h3>T-Shirt</h3>
+            <p>₹800</p>
+            <button onclick="addToCart('T-Shirt',800)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <h3>Shoes</h3>
+            <p>₹2000</p>
+            <button onclick="addToCart('Shoes',2000)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>Cart</h2>
+        <ul id="cartItems"></ul>
+        <p><strong>Total:</strong> ₹<span id="total">0</span></p>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+</div>
+
+<script>
+let total = 0;
+
+function addToCart(name, price) {
+    const cartItems = document.getElementById("cartItems");
+    const li = document.createElement("li");
+    li.innerText = name + " - ₹" + price;
+    cartItems.appendChild(li);
+
+    total += price;
+    document.getElementById("total").innerText = total;
+}
+
+function checkout() {
+    if (total === 0) {
+        alert("Your cart is empty!");
+    } else {
+        alert("Order placed successfully 🎉");
+        document.getElementById("cartItems").innerHTML = "";
+        total = 0;
+        document.getElementById("total").innerText = total;
+    }
+}
+</script>
+
+</body>
+</html>
