@@ -3,212 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <title>SmartShop | Modern E-commerce</title>
+
 <style>
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background: #f4f6f8;
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:#f4f6f8;
 }
 
 /* HEADER */
-header {
-    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header{
+    background:linear-gradient(135deg,#1e1e1e,#3a3a3a);
+    color:#fff;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+header h1{margin:0}
+
+.nav-links a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:500;
+}
+.nav-links a:hover{text-decoration:underline}
+
+.header-icons{
+    display:flex;
+    gap:20px;
+}
+.cart-icon,.wishlist-icon,.signin-icon{
+    font-size:22px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+}
+.cart-icon span,.wishlist-icon span{
+    background:red;
+    padding:2px 8px;
+    border-radius:50%;
+    font-size:14px;
+    margin-left:5px;
+}
+/* Sign-In Circle */
+.signin-icon{
+    width:32px;
+    height:32px;
+    background:white;
+    border-radius:50%;
+    color:#1e1e1e;
+    justify-content:center;
+    font-size:18px;
 }
 
-header h1 {
-    margin: 0;
+/* HOME */
+.home{
+    padding:80px 20px;
+    background:linear-gradient(120deg,#ffffff,#eaf3ff);
+    text-align:center;
 }
-
-.header-icons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+.home h2{font-size:36px}
+.home p{font-size:18px;color:#555}
+.home-features{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:25px 0;
+    font-weight:bold;
 }
-
-.cart-icon, .wishlist-icon {
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.cart-icon span, .wishlist-icon span {
-    background: red;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 50%;
-    font-size: 14px;
-    margin-left: 5px;
+.home button{
+    padding:14px 30px;
+    background:#0a7cff;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 /* BANNER */
-.banner {
-    background: linear-gradient(135deg, #0a7cff, #00d4ff);
-    color: white;
-    padding: 50px 30px;
-    text-align: center;
-    border-radius: 15px;
-    margin: 30px auto;
-    width: 90%;
-    position: relative;
-    overflow: hidden;
+.banner{
+    background:linear-gradient(135deg,#0a7cff,#00d4ff);
+    color:white;
+    padding:50px;
+    text-align:center;
+    border-radius:15px;
+    margin:30px auto;
+    width:90%;
 }
-
-.banner::before {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    top: -50px;
-    right: -50px;
-    transform: rotate(45deg);
-}
-
-.banner h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-}
-
-.banner p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
-
-.banner button {
-    padding: 14px 30px;
-    font-size: 16px;
-    border: none;
-    border-radius: 50px;
-    background: white;
-    color: #0a7cff;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.banner button:hover {
-    background: #e0e0e0;
-    transform: scale(1.05);
-}
-
-/* LAYOUT */
-.container {
-    width: 90%;
-    margin: auto;
-    padding: 30px 0;
+.banner button{
+    padding:14px 30px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#0a7cff;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* CONTROLS */
-.controls {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+.container{width:90%;margin:auto}
+.controls{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
 }
-
-.controls input,
-.controls select {
-    padding: 12px;
-    font-size: 15px;
-    flex: 1;
+.controls input,.controls select{
+    padding:12px;
+    font-size:15px;
+    flex:1;
 }
 
 /* PRODUCTS */
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
 }
-
-.product {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    position: relative;
+.product{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
-
-.product img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:8px;
 }
-
-.product h3 {
-    margin: 10px 0 5px 0;
+.product h3{margin:10px 0}
+.product p{font-size:14px;color:#555}
+.rating{color:#f9b234}
+.price{font-size:18px;font-weight:bold}
+.product-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
 }
-
-.product p {
-    font-size: 14px;
-    color: #555;
-    min-height: 40px;
-}
-
-.product .rating {
-    color: #f9b234;
-    margin: 5px 0;
-    font-size: 14px;
-}
-
-.product .price {
-    font-weight: bold;
-    font-size: 18px;
-    margin: 8px 0;
-}
-
-.product .old-price {
-    text-decoration: line-through;
-    color: #999;
-    font-size: 14px;
-    margin-left: 5px;
-}
-
-.product-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.cart-btn, .wishlist-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: #0a7cff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.cart-btn:hover, .wishlist-btn:hover {
-    background: #055fd1;
+.cart-btn,.wishlist-btn{
+    background:#0a7cff;
+    color:white;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:14px;
 }
 
 /* CART */
-.cart {
-    margin-top: 40px;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
+.cart{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin:40px auto;
+}
+footer{
+    text-align:center;
+    padding:15px;
+    color:#777;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    color: #777;
+/* LOGIN MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background: rgba(0,0,0,0.6);
+}
+.modal-content{
+    background:white;
+    margin:10% auto;
+    padding:30px;
+    border-radius:10px;
+    width:300px;
+    text-align:center;
+}
+.modal-content input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    font-size:14px;
+}
+.modal-content button{
+    padding:10px 20px;
+    background:#0a7cff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+.modal-close{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:22px;
+    cursor:pointer;
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -216,24 +218,49 @@ footer {
         <h1>SmartShop</h1>
         <p>Modern E-commerce Website</p>
     </div>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#cart">Cart</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <div class="header-icons">
         <div class="wishlist-icon">♡ <span id="wishlistCount">0</span></div>
         <div class="cart-icon">🛒 <span id="cartCount">0</span></div>
+        <div class="signin-icon" id="signinBtn">👤</div>
     </div>
 </header>
 
-<!-- CREATIVE BANNER -->
+<!-- HOME -->
+<section class="home" id="home">
+    <h2>Welcome to SmartShop 🛍️</h2>
+    <p>Your one-stop destination for Tech, Fashion & Lifestyle products</p>
+    <div class="home-features">
+        <div>🚚 Fast Delivery</div>
+        <div>💳 Secure Payment</div>
+        <div>⭐ Top Rated</div>
+    </div>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        Explore Products
+    </button>
+</section>
+
+<!-- BANNER -->
 <div class="banner">
-    <h2>❤️‍🔥 Discover Our Exclusive NewCollection!</h2>
-    <p>Premium products curated for you. Find your favorites today!</p>
-    <button id="shopNowBtn">🛍️ Shop Now</button>
+    <h2>❤️‍🔥 Discover Our Exclusive New Collection</h2>
+    <p>Premium products curated just for you</p>
+    <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+        🛍️Shop Now
+    </button>
 </div>
 
-<div class="container">
+<!-- PRODUCTS -->
+<div class="container" id="products">
 
-<!-- SEARCH & FILTER -->
 <div class="controls">
-    <input type="text" id="searchInput" placeholder="🔍Search products...">
+    <input type="text" id="searchInput" placeholder="🔍 Search products....">
     <select id="categoryFilter">
         <option value="all">All Categories</option>
         <option value="tech">Tech</option>
@@ -242,118 +269,126 @@ footer {
     </select>
     <select id="sortPrice">
         <option value="default">Sort by Price</option>
-        <option value="low">Low to High</option>
-        <option value="high">High to Low</option>
-        <option value="highest rated">Highest Rated</option>
+        <option value="low">Low → High</option>
+        <option value="high">High → Low</option>
     </select>
 </div>
 
-<!-- PRODUCTS -->
 <div class="products" id="productsSection">
-
-<!-- Tech Products -->
+<!-- TECH -->
 <div class="product" data-category="tech" data-price="15000">
-    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphone Pro">
-    <h3>Smartphone Pro</h3>
-    <p>High-performance smartphone with stunning camera and battery life.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
-    <div class="price">₹15,000</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Smartphone Pro',15000)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Smartphone Pro')">♡ Wishlist</div>
-    </div>
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+<h3>Smartphone Pro</h3>
+<p>High-performance smartphone with stunning camera.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹15,000</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Smartphone Pro',15000)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Smartphone Pro')">♡ Wishlist</div>
+</div>
 </div>
 
 <div class="product" data-category="tech" data-price="50000">
-    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Ultra Laptop">
-    <h3>Ultra Laptop</h3>
-    <p>Lightweight laptop designed for productivity and multitasking.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (95 reviews)</div>
-    <div class="price">₹50,000</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Ultra Laptop',50000)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Ultra Laptop')">♡ Wishlist</div>
-    </div>
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+<h3>Ultra Laptop</h3>
+<p>Lightweight laptop for productivity.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹50,000</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Ultra Laptop',50000)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Ultra Laptop')">♡ Wishlist</div>
+</div>
 </div>
 
 <div class="product" data-category="tech" data-price="3500">
-    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Wireless Headphones">
-    <h3>Wireless Headphones</h3>
-    <p>Noise-cancelling over-ear wireless headphones with long battery life.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (80 reviews)</div>
-    <div class="price">₹3,500</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Wireless Headphones',3500)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Wireless Headphones')">♡ Wishlist</div>
-    </div>
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+<h3>Wireless Headphones</h3>
+<p>Noise cancelling headphones.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹3,500</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Wireless Headphones',3500)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Wireless Headphones')">♡ Wishlist</div>
+</div>
 </div>
 
-<!-- Fashion Products -->
+<!-- FASHION -->
 <div class="product" data-category="fashion" data-price="800">
-    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Classic T-Shirt">
-    <h3>Classic T-Shirt</h3>
-    <p>Soft, breathable cotton t-shirt for everyday comfort and style.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (200 reviews)</div>
-    <div class="price">₹800</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Classic T-Shirt',800)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Classic T-Shirt')">♡ Wishlist</div>
-    </div>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<h3>Classic T-Shirt</h3>
+<p>Comfortable cotton t-shirt.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹800</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Classic T-Shirt',800)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Classic T-Shirt')">♡ Wishlist</div>
+</div>
 </div>
 
 <div class="product" data-category="fashion" data-price="2000">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Running Shoes">
-    <h3>Running Shoes</h3>
-    <p>Lightweight, durable running shoes designed for comfort and performance.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (150 reviews)</div>
-    <div class="price">₹2,000</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Running Shoes',2000)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Running Shoes')">♡ Wishlist</div>
-    </div>
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<h3>Running Shoes</h3>
+<p>Durable running shoes.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹2,000</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Running Shoes',2000)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Running Shoes')">♡ Wishlist</div>
+</div>
 </div>
 
 <div class="product" data-category="fashion" data-price="3000">
-    <img src="https://i.ibb.co/VWPFnhJz/Screenshot-2025-12-27-17-15-07-367-com-google-android-googlequicksearchbox-edit.jpg" alt="Elegant Necklace">
-    <h3>Elegant Necklace</h3>
-    <p>Stylish gold-plated necklace for special occasions.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (50 reviews)</div>
-    <div class="price">₹3,000</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Elegant Necklace',3000)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Elegant Necklace')">♡ Wishlist</div>
-    </div>
+<img src="https://i.ibb.co/VWPFnhJz/Screenshot-2025-12-27-17-15-07-367-com-google-android-googlequicksearchbox-edit.jpg">
+<h3>Elegant Necklace</h3>
+<p>Stylish gold plated necklace.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹3,000</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Elegant Necklace',3000)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Elegant Necklace')">♡ Wishlist</div>
+</div>
 </div>
 
-<!-- Lifestyle Products -->
+<!-- LIFESTYLE -->
 <div class="product" data-category="lifestyle" data-price="1500">
-    <img src="https://i.ibb.co/FQ2d7g5/1x1-0006-Gemini-Generated-Image-a0wbiha0wbiha0wb-4x-upscale-copy-2-jpg-Logo.jpg" alt="Backpack">
-    <h3>Backpack</h3>
-    <p>Perfect for office, college, travel, and everyday use.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (180 reviews)</div>
-    <div class="price">₹1,500</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Backpack',1500)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Backpack')">♡ Wishlist</div>
-    </div>
+<img src="https://i.ibb.co/FQ2d7g5/1x1-0006-Gemini-Generated-Image-a0wbiha0wbiha0wb-4x-upscale-copy-2-jpg-Logo.jpg">
+<h3>Backpack</h3>
+<p>Perfect for daily use.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹1,500</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Backpack',1500)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Backpack')">♡ Wishlist</div>
+</div>
 </div>
 
 <div class="product" data-category="tech" data-price="4000">
-    <img src="https://i.ibb.co/7xk6KQ8v/bcf2b2a6-8820-41ed-a9f4-52ab57a6d6c9-CR0-0-970-600-PT0-SX970-V1.jpg" alt="Smart Watch">
-    <h3>Smart Watch</h3>
-    <p>Stay connected and track your health anytime, anywhere.</p>
-    <div class="rating">⭐⭐⭐⭐☆ (210 reviews)</div>
-    <div class="price">₹4,000</div>
-    <div class="product-buttons">
-        <div class="cart-btn" onclick="addToCart('Smart Watch',4000)">🛒 Add to Cart</div>
-        <div class="wishlist-btn" onclick="addToWishlist('Smart Watch')">♡ Wishlist</div>
-    </div>
+<img src="https://i.ibb.co/7xk6KQ8v/bcf2b2a6-8820-41ed-a9f4-52ab57a6d6c9-CR0-0-970-600-PT0-SX970-V1.jpg">
+<h3>Smart Watch</h3>
+<p>Track your fitness & health.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹4,000</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Smart Watch',4000)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Smart Watch')">♡ Wishlist</div>
+</div>
+</div>
+<div class="product" data-category="fashion" data-price="2500">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
+<h3>Denim Jacket</h3>
+<p>Trendy jacket for all seasons.</p>
+<div class="rating">⭐⭐⭐⭐☆</div>
+<div class="price">₹2,500</div>
+<div class="product-buttons">
+<div class="cart-btn" onclick="addToCart('Denim Jacket',2500)">🛒 Cart</div>
+<div class="wishlist-btn" onclick="addToWishlist('Denim Jacket')">♡ Wishlist</div>
+</div>
 </div>
 
 </div>
 
 <!-- CART -->
-<div class="cart">
+<div class="cart" id="cart">
 <h2>🛒 Your Cart</h2>
 <ul id="cartItems"></ul>
 <p><strong>Total:</strong> ₹<span id="total">0</span></p>
@@ -362,102 +397,128 @@ footer {
 
 </div>
 
-<footer>
-© 2025 SmartShop | E-commerce Website
-</footer>
+<!-- CONTACT -->
+<section id="contact" style="text-align:center;padding:40px">
+<h2>📞 Contact Us</h2>
+<p>Email: support@smartshop.com</p>
+<p>Phone: +91 98765 43210</p>
+</section>
+
+<footer>© 2025 SmartShop</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <span class="modal-close" id="closeModal">&times;</span>
+        <h2>Sign In</h2>
+        <input type="text" placeholder="Email or Username" id="loginEmail">
+        <input type="password" placeholder="Password" id="loginPassword">
+        <button onclick="login()">Sign In</button>
+    </div>
+</div>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let total = JSON.parse(localStorage.getItem("total")) || 0;
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let cart=[],total=0,wishlist=[];
+const cartItems=document.getElementById("cartItems");
+const totalSpan=document.getElementById("total");
+const cartCount=document.getElementById("cartCount");
+const wishlistCount=document.getElementById("wishlistCount");
 
-const cartItems = document.getElementById("cartItems");
-const totalSpan = document.getElementById("total");
-const cartCount = document.getElementById("cartCount");
-const wishlistCount = document.getElementById("wishlistCount");
-const productsSection = document.getElementById("productsSection");
-
-function renderCart() {
-    cartItems.innerHTML = "";
-    cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.name + " - ₹" + item.price;
-        cartItems.appendChild(li);
-    });
-    totalSpan.textContent = total;
-    cartCount.textContent = cart.length;
+function renderCart(){
+cartItems.innerHTML="";
+cart.forEach(i=>{
+let li=document.createElement("li");
+li.textContent=i.name+" - ₹"+i.price;
+cartItems.appendChild(li);
+});
+cartCount.textContent=cart.length;
+totalSpan.textContent=total;
 }
 
-function addToCart(name, price) {
-    cart.push({ name, price });
-    total += price;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("total", JSON.stringify(total));
-    renderCart();
-}
-
-function addToWishlist(name) {
-    if (!wishlist.includes(name)) {
-        wishlist.push(name);
-    } else {
-        wishlist = wishlist.filter(item => item !== name);
-    }
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    wishlistCount.textContent = wishlist.length;
-    alert(`${name} ${wishlist.includes(name) ? 'added to' : 'removed from'} Wishlist`);
-}
-
-function checkout() {
-    if (total === 0) {
-        alert("Your cart is empty!");
-        return;
-    }
-    alert("Order placed successfully 🎉");
-    cart = [];
-    total = 0;
-    localStorage.clear();
-    renderCart();
-}
-
-// Search products
-document.getElementById("searchInput").addEventListener("keyup", function () {
-    const value = this.value.toLowerCase();
-    document.querySelectorAll(".product").forEach(product => {
-        product.style.display =
-            product.querySelector("h3").innerText.toLowerCase().includes(value)
-            ? "block" : "none";
-    });
-});
-
-// Filter category
-document.getElementById("categoryFilter").addEventListener("change", function () {
-    const category = this.value;
-    document.querySelectorAll(".product").forEach(product => {
-        product.style.display =
-            category === "all" || product.dataset.category === category
-            ? "block" : "none";
-    });
-});
-
-// Sort by price
-document.getElementById("sortPrice").addEventListener("change", function () {
-    const value = this.value;
-    const products = Array.from(document.querySelectorAll(".product"));
-    if (value === "low") {
-        products.sort((a,b) => a.dataset.price - b.dataset.price);
-    } else if (value === "high") {
-        products.sort((a,b) => b.dataset.price - a.dataset.price);
-    }
-    products.forEach(p => productsSection.appendChild(p));
-});
-
-// Shop Now scroll
-document.getElementById("shopNowBtn").addEventListener("click", () => {
-    productsSection.scrollIntoView({ behavior: 'smooth' });
-});
-
+function addToCart(name,price){
+cart.push({name,price});
+total+=price;
 renderCart();
-wishlistCount.textContent = wishlist.length;
+}
+
+function addToWishlist(name){
+wishlist.includes(name)?wishlist=wishlist.filter(i=>i!==name):wishlist.push(name);
+wishlistCount.textContent=wishlist.length;
+}
+
+function checkout(){
+if(total===0){alert("Cart is empty");return;}
+alert("Order placed successfully 🎉");
+cart=[];total=0;renderCart();
+}
+
+/* FILTER + SORT */
+const searchInput=document.getElementById("searchInput");
+const categoryFilter=document.getElementById("categoryFilter");
+const sortPrice=document.getElementById("sortPrice");
+const productsSection=document.getElementById("productsSection");
+
+function applyFilters(){
+let search=searchInput.value.toLowerCase();
+let category=categoryFilter.value;
+
+let products=[...document.querySelectorAll(".product")];
+
+products.forEach(p=>{
+let name=p.querySelector("h3").innerText.toLowerCase();
+let cat=p.dataset.category;
+let show=name.includes(search)&&(category==="all"||cat===category);
+p.style.display=show?"block":"none";
+});
+
+applySorting();
+}
+
+function applySorting(){
+let visible=[...document.querySelectorAll(".product")].filter(p=>p.style.display!=="none");
+if(sortPrice.value==="low"){
+visible.sort((a,b)=>a.dataset.price-b.dataset.price);
+}
+else if(sortPrice.value==="high"){
+visible.sort((a,b)=>b.dataset.price-a.dataset.price);
+}
+visible.forEach(p=>productsSection.appendChild(p));
+}
+
+searchInput.addEventListener("keyup",applyFilters);
+categoryFilter.addEventListener("change",applyFilters);
+sortPrice.addEventListener("change",applyFilters);
+
+/* LOGIN MODAL LOGIC */
+const loginModal=document.getElementById("loginModal");
+const signinBtn=document.getElementById("signinBtn");
+const closeModal=document.getElementById("closeModal");
+
+signinBtn.onclick=function(){
+    loginModal.style.display="block";
+}
+
+closeModal.onclick=function(){
+    loginModal.style.display="none";
+}
+
+window.onclick=function(event){
+    if(event.target==loginModal){
+        loginModal.style.display="none";
+    }
+}
+
+function login(){
+    let email=document.getElementById("loginEmail").value;
+    let pass=document.getElementById("loginPassword").value;
+    if(email && pass){
+        alert("Welcome, "+email+"! 🎉");
+        loginModal.style.display="none";
+    }else{
+        alert("Please enter email and password.");
+    }
+}
 </script>
+
 </body>
 </html>
