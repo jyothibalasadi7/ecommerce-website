@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -72,13 +72,11 @@ header h1 {
 .banner h2 {
     font-size: 32px;
     margin-bottom: 15px;
-    animation: fadeIn 1.2s ease forwards;
 }
 
 .banner p {
     font-size: 18px;
     margin-bottom: 25px;
-    animation: fadeIn 1.5s ease forwards;
 }
 
 .banner button {
@@ -90,17 +88,11 @@ header h1 {
     color: #0a7cff;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s ease;
 }
 
 .banner button:hover {
     background: #e0e0e0;
     transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* LAYOUT */
@@ -177,21 +169,28 @@ header h1 {
     margin-left: 5px;
 }
 
-.cart-btn {
+.product-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cart-btn, .wishlist-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
     background: #0a7cff;
     color: white;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 15px;
-    margin-top: 10px;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-.cart-btn:hover {
+.cart-btn:hover, .wishlist-btn:hover {
     background: #055fd1;
 }
 
@@ -225,8 +224,8 @@ footer {
 
 <!-- CREATIVE BANNER -->
 <div class="banner">
-    <h2>🔥 Discover Our Exclusive New Collection!</h2>
-    <p>Hand-picked premium products just for you. Find your favorites today!</p>
+    <h2>❤️‍🔥 Discover Our Exclusive NewCollection!</h2>
+    <p>Premium products curated for you. Find your favorites today!</p>
     <button id="shopNowBtn">🛍️ Shop Now</button>
 </div>
 
@@ -234,91 +233,121 @@ footer {
 
 <!-- SEARCH & FILTER -->
 <div class="controls">
-    <input type="text" id="searchInput" placeholder="Search products...">
+    <input type="text" id="searchInput" placeholder="🔍Search products...">
     <select id="categoryFilter">
         <option value="all">All Categories</option>
         <option value="tech">Tech</option>
         <option value="fashion">Fashion</option>
         <option value="lifestyle">Lifestyle</option>
     </select>
+    <select id="sortPrice">
+        <option value="default">Sort by Price</option>
+        <option value="low">Low to High</option>
+        <option value="high">High to Low</option>
+        <option value="highest rated">Highest Rated</option>
+    </select>
 </div>
 
 <!-- PRODUCTS -->
 <div class="products" id="productsSection">
 
-<!-- Tech -->
-<div class="product" data-category="tech">
-<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphone Pro">
-<h3>Smartphone Pro</h3>
-<p>High-performance smartphone with stunning camera and battery life.</p>
-<div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
-<div class="price">₹15,000</div>
-<div class="cart-btn" onclick="addToCart('Smartphone Pro',15000)">🛒 Add to Cart</div>
+<!-- Tech Products -->
+<div class="product" data-category="tech" data-price="15000">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphone Pro">
+    <h3>Smartphone Pro</h3>
+    <p>High-performance smartphone with stunning camera and battery life.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
+    <div class="price">₹15,000</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Smartphone Pro',15000)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Smartphone Pro')">♡ Wishlist</div>
+    </div>
 </div>
 
-<div class="product" data-category="tech">
-<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Ultra Laptop">
-<h3>Ultra Laptop</h3>
-<p>Lightweight laptop designed for productivity and multitasking.</p>
-<div class="rating">⭐⭐⭐⭐☆ (87 reviews)</div>
-<div class="price">₹50,000</div>
-<div class="cart-btn" onclick="addToCart('Ultra Laptop',50000)">🛒 Add to Cart</div>
+<div class="product" data-category="tech" data-price="50000">
+    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Ultra Laptop">
+    <h3>Ultra Laptop</h3>
+    <p>Lightweight laptop designed for productivity and multitasking.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (95 reviews)</div>
+    <div class="price">₹50,000</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Ultra Laptop',50000)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Ultra Laptop')">♡ Wishlist</div>
+    </div>
 </div>
 
-<div class="product" data-category="tech">
-<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Wireless Headphones">
-<h3>Wireless Headphones</h3>
-<p>Noise-cancelling over-ear wireless headphones with long battery life.</p>
-<div class="rating">⭐⭐⭐⭐☆ (75 reviews)</div>
-<div class="price">₹3,500</div>
-<div class="cart-btn" onclick="addToCart('Wireless Headphones',3500)">🛒 Add to Cart</div>
+<div class="product" data-category="tech" data-price="3500">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Wireless Headphones">
+    <h3>Wireless Headphones</h3>
+    <p>Noise-cancelling over-ear wireless headphones with long battery life.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (80 reviews)</div>
+    <div class="price">₹3,500</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Wireless Headphones',3500)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Wireless Headphones')">♡ Wishlist</div>
+    </div>
 </div>
 
-<!-- Fashion -->
-<div class="product" data-category="fashion">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Classic T-Shirt">
-<h3>Classic T-Shirt</h3>
-<p>Soft, breathable cotton t-shirt for everyday comfort and style.</p>
-<div class="rating">⭐⭐⭐⭐☆ (200 reviews)</div>
-<div class="price">₹800</div>
-<div class="cart-btn" onclick="addToCart('Classic T-Shirt',800)">🛒 Add to Cart</div>
+<!-- Fashion Products -->
+<div class="product" data-category="fashion" data-price="800">
+    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Classic T-Shirt">
+    <h3>Classic T-Shirt</h3>
+    <p>Soft, breathable cotton t-shirt for everyday comfort and style.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (200 reviews)</div>
+    <div class="price">₹800</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Classic T-Shirt',800)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Classic T-Shirt')">♡ Wishlist</div>
+    </div>
 </div>
 
-<div class="product" data-category="fashion">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Running Shoes">
-<h3>Running Shoes</h3>
-<p>Lightweight, durable running shoes designed for comfort and performance.</p>
-<div class="rating">⭐⭐⭐⭐⭐ (95 reviews)</div>
-<div class="price">₹2,000</div>
-<div class="cart-btn" onclick="addToCart('Running Shoes',2000)">🛒 Add to Cart</div>
+<div class="product" data-category="fashion" data-price="2000">
+    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Running Shoes">
+    <h3>Running Shoes</h3>
+    <p>Lightweight, durable running shoes designed for comfort and performance.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (150 reviews)</div>
+    <div class="price">₹2,000</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Running Shoes',2000)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Running Shoes')">♡ Wishlist</div>
+    </div>
 </div>
 
-<div class="product" data-category="fashion">
-<img src="https://i.ibb.co/VWPFnhJz/Screenshot-2025-12-27-17-15-07-367-com-google-android-googlequicksearchbox-edit.jpg" alt="Jewellery">
-<h3>Elegant Necklace</h3>
-<p>Stylish gold-plated necklace for special occasions.</p>
-<div class="rating">⭐⭐⭐⭐☆ (45 reviews)</div>
-<div class="price">₹3,000</div>
-<div class="cart-btn" onclick="addToCart('Elegant Necklace',3000)">🛒 Add to Cart</div>
+<div class="product" data-category="fashion" data-price="3000">
+    <img src="https://i.ibb.co/VWPFnhJz/Screenshot-2025-12-27-17-15-07-367-com-google-android-googlequicksearchbox-edit.jpg" alt="Elegant Necklace">
+    <h3>Elegant Necklace</h3>
+    <p>Stylish gold-plated necklace for special occasions.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (50 reviews)</div>
+    <div class="price">₹3,000</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Elegant Necklace',3000)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Elegant Necklace')">♡ Wishlist</div>
+    </div>
 </div>
 
-<!-- Lifestyle -->
-<div class="product" data-category="lifestyle">
-<img src="https://i.ibb.co/FQ2d7g5/1x1-0006-Gemini-Generated-Image-a0wbiha0wbiha0wb-4x-upscale-copy-2-jpg-Logo.jpg" alt="Backpack">
-<h3>Backpack</h3>
-<p>Perfect for office, college, travel, and everyday use.</p>
-<div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
-<div class="price">₹1,500</div>
-<div class="cart-btn" onclick="addToCart('Backpack',1500)">🛒 Add to Cart</div>
+<!-- Lifestyle Products -->
+<div class="product" data-category="lifestyle" data-price="1500">
+    <img src="https://i.ibb.co/FQ2d7g5/1x1-0006-Gemini-Generated-Image-a0wbiha0wbiha0wb-4x-upscale-copy-2-jpg-Logo.jpg" alt="Backpack">
+    <h3>Backpack</h3>
+    <p>Perfect for office, college, travel, and everyday use.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (180 reviews)</div>
+    <div class="price">₹1,500</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Backpack',1500)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Backpack')">♡ Wishlist</div>
+    </div>
 </div>
 
-<div class="product" data-category="tech">
-<img src="https://i.ibb.co/7xk6KQ8v/bcf2b2a6-8820-41ed-a9f4-52ab57a6d6c9-CR0-0-970-600-PT0-SX970-V1.jpg" alt="Smart Watch">
-<h3>Smart Watch</h3>
-<p>Stay connected and track your health anytime, anywhere.</p>
-<div class="rating">⭐⭐⭐⭐⭐ (150 reviews)</div>
-<div class="price">₹4,000</div>
-<div class="cart-btn" onclick="addToCart('Smart Watch',4000)">🛒 Add to Cart</div>
+<div class="product" data-category="tech" data-price="4000">
+    <img src="https://i.ibb.co/7xk6KQ8v/bcf2b2a6-8820-41ed-a9f4-52ab57a6d6c9-CR0-0-970-600-PT0-SX970-V1.jpg" alt="Smart Watch">
+    <h3>Smart Watch</h3>
+    <p>Stay connected and track your health anytime, anywhere.</p>
+    <div class="rating">⭐⭐⭐⭐☆ (210 reviews)</div>
+    <div class="price">₹4,000</div>
+    <div class="product-buttons">
+        <div class="cart-btn" onclick="addToCart('Smart Watch',4000)">🛒 Add to Cart</div>
+        <div class="wishlist-btn" onclick="addToWishlist('Smart Watch')">♡ Wishlist</div>
+    </div>
 </div>
 
 </div>
@@ -346,6 +375,7 @@ const cartItems = document.getElementById("cartItems");
 const totalSpan = document.getElementById("total");
 const cartCount = document.getElementById("cartCount");
 const wishlistCount = document.getElementById("wishlistCount");
+const productsSection = document.getElementById("productsSection");
 
 function renderCart() {
     cartItems.innerHTML = "";
@@ -366,6 +396,17 @@ function addToCart(name, price) {
     renderCart();
 }
 
+function addToWishlist(name) {
+    if (!wishlist.includes(name)) {
+        wishlist.push(name);
+    } else {
+        wishlist = wishlist.filter(item => item !== name);
+    }
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    wishlistCount.textContent = wishlist.length;
+    alert(`${name} ${wishlist.includes(name) ? 'added to' : 'removed from'} Wishlist`);
+}
+
 function checkout() {
     if (total === 0) {
         alert("Your cart is empty!");
@@ -378,12 +419,7 @@ function checkout() {
     renderCart();
 }
 
-// Wishlist functionality
-document.querySelector('.wishlist-icon').addEventListener('click', () => {
-    alert("Wishlist clicked! You can add custom logic here.");
-});
-
-// Search functionality
+// Search products
 document.getElementById("searchInput").addEventListener("keyup", function () {
     const value = this.value.toLowerCase();
     document.querySelectorAll(".product").forEach(product => {
@@ -393,7 +429,7 @@ document.getElementById("searchInput").addEventListener("keyup", function () {
     });
 });
 
-// Category filter
+// Filter category
 document.getElementById("categoryFilter").addEventListener("change", function () {
     const category = this.value;
     document.querySelectorAll(".product").forEach(product => {
@@ -403,13 +439,25 @@ document.getElementById("categoryFilter").addEventListener("change", function ()
     });
 });
 
-// Scroll to products
+// Sort by price
+document.getElementById("sortPrice").addEventListener("change", function () {
+    const value = this.value;
+    const products = Array.from(document.querySelectorAll(".product"));
+    if (value === "low") {
+        products.sort((a,b) => a.dataset.price - b.dataset.price);
+    } else if (value === "high") {
+        products.sort((a,b) => b.dataset.price - a.dataset.price);
+    }
+    products.forEach(p => productsSection.appendChild(p));
+});
+
+// Shop Now scroll
 document.getElementById("shopNowBtn").addEventListener("click", () => {
-    document.getElementById("productsSection").scrollIntoView({ behavior: 'smooth' });
+    productsSection.scrollIntoView({ behavior: 'smooth' });
 });
 
 renderCart();
+wishlistCount.textContent = wishlist.length;
 </script>
-
 </body>
 </html>
