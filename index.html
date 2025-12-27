@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SmartShop | Quality Everyday Products</title>
-
+<title>SmartShop | Modern E-commerce</title>
 <style>
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -16,17 +15,92 @@ header {
     background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
     color: white;
     padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
     margin: 0;
-    letter-spacing: 1px;
 }
 
-header p {
-    margin-top: 5px;
-    opacity: 0.8;
+.header-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cart-icon, .wishlist-icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.cart-icon span, .wishlist-icon span {
+    background: red;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* BANNER */
+.banner {
+    background: linear-gradient(135deg, #0a7cff, #00d4ff);
+    color: white;
+    padding: 50px 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 30px auto;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    transform: rotate(45deg);
+}
+
+.banner h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.banner button {
+    padding: 14px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #0a7cff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.banner button:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* LAYOUT */
@@ -36,10 +110,25 @@ header p {
     padding: 30px 0;
 }
 
+/* CONTROLS */
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    padding: 12px;
+    font-size: 15px;
+    flex: 1;
+}
+
 /* PRODUCTS */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
@@ -49,11 +138,7 @@ header p {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
-}
-
-.product:hover {
-    transform: translateY(-5px);
+    position: relative;
 }
 
 .product img {
@@ -64,34 +149,49 @@ header p {
 }
 
 .product h3 {
-    margin: 10px 0 5px;
+    margin: 10px 0 5px 0;
 }
 
 .product p {
     font-size: 14px;
     color: #555;
+    min-height: 40px;
 }
 
-.price {
+.product .rating {
+    color: #f9b234;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.product .price {
     font-weight: bold;
     font-size: 18px;
     margin: 8px 0;
 }
 
-/* BUTTON */
-button {
-    margin-top: 10px;
-    padding: 12px;
-    width: 100%;
+.product .old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: #0a7cff;
     color: white;
-    border: none;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
+    margin-top: 10px;
 }
 
-button:hover {
+.cart-btn:hover {
     background: #055fd1;
 }
 
@@ -101,98 +201,214 @@ button:hover {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.cart h2 {
-    margin-top: 0;
-}
-
-#cartItems li {
-    margin-bottom: 8px;
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #777;
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>SmartShop</h1>
-    <p>Premium Tech, Fashion & Lifestyle Essentials</p>
+    <div>
+        <h1>SmartShop</h1>
+        <p>Modern E-commerce Website</p>
+    </div>
+    <div class="header-icons">
+        <div class="wishlist-icon">♡ <span id="wishlistCount">0</span></div>
+        <div class="cart-icon">🛒 <span id="cartCount">0</span></div>
+    </div>
 </header>
+
+<!-- CREATIVE BANNER -->
+<div class="banner">
+    <h2>🔥 Discover Our Exclusive New Collection!</h2>
+    <p>Hand-picked premium products just for you. Find your favorites today!</p>
+    <button id="shopNowBtn">🛍️ Shop Now</button>
+</div>
 
 <div class="container">
 
-    <h2>Featured Products</h2>
+<!-- SEARCH & FILTER -->
+<div class="controls">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="tech">Tech</option>
+        <option value="fashion">Fashion</option>
+        <option value="lifestyle">Lifestyle</option>
+    </select>
+</div>
 
-    <div class="products">
+<!-- PRODUCTS -->
+<div class="products" id="productsSection">
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="Smartphone">
-            <h3>Smartphone Pro</h3>
-            <p>High-performance smartphone with stunning camera and battery life.</p>
-            <div class="price">₹15,000</div>
-            <button onclick="addToCart('Smartphone Pro',15000)">Add to Cart</button>
-        </div>
+<!-- Tech -->
+<div class="product" data-category="tech">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphone Pro">
+<h3>Smartphone Pro</h3>
+<p>High-performance smartphone with stunning camera and battery life.</p>
+<div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
+<div class="price">₹15,000</div>
+<div class="cart-btn" onclick="addToCart('Smartphone Pro',15000)">🛒 Add to Cart</div>
+</div>
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Laptop">
-            <h3>Ultra Laptop</h3>
-            <p>Lightweight laptop designed for productivity and multitasking.</p>
-            <div class="price">₹50,000</div>
-            <button onclick="addToCart('Ultra Laptop',50000)">Add to Cart</button>
-        </div>
+<div class="product" data-category="tech">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" alt="Ultra Laptop">
+<h3>Ultra Laptop</h3>
+<p>Lightweight laptop designed for productivity and multitasking.</p>
+<div class="rating">⭐⭐⭐⭐☆ (87 reviews)</div>
+<div class="price">₹50,000</div>
+<div class="cart-btn" onclick="addToCart('Ultra Laptop',50000)">🛒 Add to Cart</div>
+</div>
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="T-Shirt">
-            <h3>Classic T-Shirt</h3>
-            <p>Comfortable cotton t-shirt for everyday wear.</p>
-            <div class="price">₹800</div>
-            <button onclick="addToCart('Classic T-Shirt',800)">Add to Cart</button>
-        </div>
+<div class="product" data-category="tech">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Wireless Headphones">
+<h3>Wireless Headphones</h3>
+<p>Noise-cancelling over-ear wireless headphones with long battery life.</p>
+<div class="rating">⭐⭐⭐⭐☆ (75 reviews)</div>
+<div class="price">₹3,500</div>
+<div class="cart-btn" onclick="addToCart('Wireless Headphones',3500)">🛒 Add to Cart</div>
+</div>
 
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes">
-            <h3>Running Shoes</h3>
-            <p>Durable and stylish shoes built for comfort and speed.</p>
-            <div class="price">₹2,000</div>
-            <button onclick="addToCart('Running Shoes',2000)">Add to Cart</button>
-        </div>
+<!-- Fashion -->
+<div class="product" data-category="fashion">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Classic T-Shirt">
+<h3>Classic T-Shirt</h3>
+<p>Soft, breathable cotton t-shirt for everyday comfort and style.</p>
+<div class="rating">⭐⭐⭐⭐☆ (200 reviews)</div>
+<div class="price">₹800</div>
+<div class="cart-btn" onclick="addToCart('Classic T-Shirt',800)">🛒 Add to Cart</div>
+</div>
 
-    </div>
+<div class="product" data-category="fashion">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Running Shoes">
+<h3>Running Shoes</h3>
+<p>Lightweight, durable running shoes designed for comfort and performance.</p>
+<div class="rating">⭐⭐⭐⭐⭐ (95 reviews)</div>
+<div class="price">₹2,000</div>
+<div class="cart-btn" onclick="addToCart('Running Shoes',2000)">🛒 Add to Cart</div>
+</div>
 
-    <div class="cart">
-        <h2>Your Cart</h2>
-        <ul id="cartItems"></ul>
-        <p><strong>Total:</strong> ₹<span id="total">0</span></p>
-        <button onclick="checkout()">Checkout</button>
-    </div>
+<div class="product" data-category="fashion">
+<img src="https://i.ibb.co/VWPFnhJz/Screenshot-2025-12-27-17-15-07-367-com-google-android-googlequicksearchbox-edit.jpg" alt="Jewellery">
+<h3>Elegant Necklace</h3>
+<p>Stylish gold-plated necklace for special occasions.</p>
+<div class="rating">⭐⭐⭐⭐☆ (45 reviews)</div>
+<div class="price">₹3,000</div>
+<div class="cart-btn" onclick="addToCart('Elegant Necklace',3000)">🛒 Add to Cart</div>
+</div>
+
+<!-- Lifestyle -->
+<div class="product" data-category="lifestyle">
+<img src="https://i.ibb.co/FQ2d7g5/1x1-0006-Gemini-Generated-Image-a0wbiha0wbiha0wb-4x-upscale-copy-2-jpg-Logo.jpg" alt="Backpack">
+<h3>Backpack</h3>
+<p>Perfect for office, college, travel, and everyday use.</p>
+<div class="rating">⭐⭐⭐⭐☆ (120 reviews)</div>
+<div class="price">₹1,500</div>
+<div class="cart-btn" onclick="addToCart('Backpack',1500)">🛒 Add to Cart</div>
+</div>
+
+<div class="product" data-category="tech">
+<img src="https://i.ibb.co/7xk6KQ8v/bcf2b2a6-8820-41ed-a9f4-52ab57a6d6c9-CR0-0-970-600-PT0-SX970-V1.jpg" alt="Smart Watch">
+<h3>Smart Watch</h3>
+<p>Stay connected and track your health anytime, anywhere.</p>
+<div class="rating">⭐⭐⭐⭐⭐ (150 reviews)</div>
+<div class="price">₹4,000</div>
+<div class="cart-btn" onclick="addToCart('Smart Watch',4000)">🛒 Add to Cart</div>
+</div>
 
 </div>
 
+<!-- CART -->
+<div class="cart">
+<h2>🛒 Your Cart</h2>
+<ul id="cartItems"></ul>
+<p><strong>Total:</strong> ₹<span id="total">0</span></p>
+<button onclick="checkout()">Checkout</button>
+</div>
+
+</div>
+
+<footer>
+© 2025 SmartShop | E-commerce Website
+</footer>
+
 <script>
-let total = 0;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = JSON.parse(localStorage.getItem("total")) || 0;
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+const cartItems = document.getElementById("cartItems");
+const totalSpan = document.getElementById("total");
+const cartCount = document.getElementById("cartCount");
+const wishlistCount = document.getElementById("wishlistCount");
+
+function renderCart() {
+    cartItems.innerHTML = "";
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name + " - ₹" + item.price;
+        cartItems.appendChild(li);
+    });
+    totalSpan.textContent = total;
+    cartCount.textContent = cart.length;
+}
 
 function addToCart(name, price) {
-    const cartItems = document.getElementById("cartItems");
-    const li = document.createElement("li");
-    li.innerText = name + " - ₹" + price;
-    cartItems.appendChild(li);
-
+    cart.push({ name, price });
     total += price;
-    document.getElementById("total").innerText = total;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("total", JSON.stringify(total));
+    renderCart();
 }
 
 function checkout() {
     if (total === 0) {
         alert("Your cart is empty!");
-    } else {
-        alert("Thank you for shopping with SmartShop 🎉");
-        document.getElementById("cartItems").innerHTML = "";
-        total = 0;
-        document.getElementById("total").innerText = total;
+        return;
     }
+    alert("Order placed successfully 🎉");
+    cart = [];
+    total = 0;
+    localStorage.clear();
+    renderCart();
 }
+
+// Wishlist functionality
+document.querySelector('.wishlist-icon').addEventListener('click', () => {
+    alert("Wishlist clicked! You can add custom logic here.");
+});
+
+// Search functionality
+document.getElementById("searchInput").addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+    document.querySelectorAll(".product").forEach(product => {
+        product.style.display =
+            product.querySelector("h3").innerText.toLowerCase().includes(value)
+            ? "block" : "none";
+    });
+});
+
+// Category filter
+document.getElementById("categoryFilter").addEventListener("change", function () {
+    const category = this.value;
+    document.querySelectorAll(".product").forEach(product => {
+        product.style.display =
+            category === "all" || product.dataset.category === category
+            ? "block" : "none";
+    });
+});
+
+// Scroll to products
+document.getElementById("shopNowBtn").addEventListener("click", () => {
+    document.getElementById("productsSection").scrollIntoView({ behavior: 'smooth' });
+});
+
+renderCart();
 </script>
 
 </body>
